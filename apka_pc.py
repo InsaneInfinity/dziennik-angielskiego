@@ -78,7 +78,7 @@ if not st.session_state.df.empty:
         st.bar_chart(data=df_filtered, x="Data", y="Suma")
         st.dataframe(df_filtered, use_container_width=True)
 
-    with tab2:streamlit run apka_pc.py
+    with tab2:
         # Grupowanie po tygodniu
         df_tydzien = df_filtered.resample('W-MON', on='Data').sum()
         st.write("Suma zarobków w podziale na tygodnie (początek tygodnia to Poniedziałek):")
@@ -93,4 +93,5 @@ if not st.session_state.df.empty:
             st.rerun()
 
 else:
+
     st.info("Baza danych jest pusta. Użyj panelu po lewej, aby dodać pierwsze lekcje.")
